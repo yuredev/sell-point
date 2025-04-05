@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sell_point/core/constants/urls.dart';
 import 'package:sell_point/logic/cubits/cart/load/load_carts_cubit.dart';
-import 'package:sell_point/logic/cubits/products/load/load_products_cubit.dart';
+import 'package:sell_point/logic/cubits/product/load/load_products_cubit.dart';
 import 'package:sell_point/repository/cart/cart_repository.dart';
 import 'package:sell_point/repository/product/product_repository.dart';
 

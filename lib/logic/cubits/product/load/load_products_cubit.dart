@@ -2,7 +2,7 @@
 
 import 'package:dio/dio.dart' show DioException;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sell_point/logic/cubits/products/load/load_products_state.dart';
+import 'package:sell_point/logic/cubits/product/load/load_products_state.dart';
 import 'package:sell_point/repository/product/product_repository.dart';
 
 class LoadProductsCubit extends Cubit<LoadProductsState> {

@@ -14,4 +14,7 @@ abstract class CartRepository {
 
   @GET('')
   Future<List<Cart>> getAll();
+
+  @POST('')
+  Future<void> create(@Body() Cart cart);
 }

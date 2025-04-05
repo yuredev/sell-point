@@ -14,4 +14,7 @@ abstract class ProductRepository {
 
   @GET('')
   Future<List<Product>> getAll();
+
+  @POST('')
+  Future<void> create(@Body() Product product);
 }

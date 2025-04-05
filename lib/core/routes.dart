@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sell_point/core/bindings.dart';
-import 'package:sell_point/logic/cubits/products/load/load_products_cubit.dart';
+import 'package:sell_point/logic/cubits/product/load/load_products_cubit.dart';
 import 'package:sell_point/presentation/pages/products_page.dart';
 
 abstract class Routes {

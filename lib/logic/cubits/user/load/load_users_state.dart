@@ -12,11 +12,12 @@ class LoadingUsersState extends Equatable implements LoadUsersState {
 
 class UsersLoadedState extends Equatable implements LoadUsersState {
   final List<User> users;
+  final DateTime lastTimeUpdated;
 
-  const UsersLoadedState(this.users);
+  const UsersLoadedState(this.users, this.lastTimeUpdated);
 
   @override
-  List<Object?> get props => [users];
+  List<Object?> get props => [users, lastTimeUpdated];
 }
 
 class UsersLoadErrorState extends Equatable implements LoadUsersState {

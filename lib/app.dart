@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sell_point/core/routes.dart';
+import 'package:sell_point/presentation/themes/light_theme.dart';
 
 class SellPointApp extends StatelessWidget {
   const SellPointApp({super.key});
@@ -7,8 +8,9 @@ class SellPointApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: lightTheme,
       onGenerateRoute: Routes.onGenerateRoute,
-      initialRoute: Routes.products,
+      initialRoute: Routes.seller,
     );
   }
 }

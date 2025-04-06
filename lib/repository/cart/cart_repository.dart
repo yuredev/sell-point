@@ -1,6 +1,7 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:sell_point/domain/cart/cart.dart';
 import 'package:dio/dio.dart';
+import 'package:sell_point/domain/dto/cart_dto/cart_dto.dart';
 
 part 'cart_repository.g.dart';
 
@@ -13,7 +14,7 @@ abstract class CartRepository {
       _CartRepository;
 
   @GET('')
-  Future<List<Cart>> getAll();
+  Future<List<CartDto>> getAll();
 
   @POST('')
   Future<void> create(@Body() Cart cart);

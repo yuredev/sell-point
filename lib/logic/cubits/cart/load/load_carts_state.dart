@@ -12,8 +12,9 @@ class LoadingCartsState extends Equatable implements LoadCartsState {
 
 class CartsLoadedState extends Equatable implements LoadCartsState {
   final List<Cart> carts;
+  final DateTime lastTimeUpdated;
 
-  const CartsLoadedState(this.carts);
+  const CartsLoadedState(this.carts, this.lastTimeUpdated);
 
   @override
   List<Object?> get props => [carts];

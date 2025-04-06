@@ -18,12 +18,12 @@ class _CartRepository implements CartRepository {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<Cart>> getAll() async {
+  Future<List<CartDto>> getAll() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<Cart>>(
+    final _options = _setStreamType<List<CartDto>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -34,11 +34,11 @@ class _CartRepository implements CartRepository {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<Cart> _value;
+    late List<CartDto> _value;
     try {
       _value =
           _result.data!
-              .map((dynamic i) => Cart.fromJson(i as Map<String, dynamic>))
+              .map((dynamic i) => CartDto.fromJson(i as Map<String, dynamic>))
               .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);

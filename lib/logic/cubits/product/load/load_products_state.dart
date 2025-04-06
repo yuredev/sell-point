@@ -12,11 +12,12 @@ class LoadingProductsState extends Equatable implements LoadProductsState {
 
 class ProductsLoadedState extends Equatable implements LoadProductsState {
   final List<Product> products;
+  final DateTime lastTimeUpdated;
 
-  const ProductsLoadedState(this.products);
+  const ProductsLoadedState(this.products, this.lastTimeUpdated);
 
   @override
-  List<Object?> get props => [products];
+  List<Object?> get props => [products, lastTimeUpdated];
 }
 
 class ProductsLoadErrorState extends Equatable implements LoadProductsState {

@@ -8,7 +8,7 @@ part of 'cart.dart';
 
 Cart _$CartFromJson(Map<String, dynamic> json) => Cart(
   id: (json['id'] as num).toInt(),
-  userId: (json['userId'] as num).toInt(),
+  user: User.fromJson(json['user'] as Map<String, dynamic>),
   products:
       (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))
@@ -17,6 +17,6 @@ Cart _$CartFromJson(Map<String, dynamic> json) => Cart(
 
 Map<String, dynamic> _$CartToJson(Cart instance) => <String, dynamic>{
   'id': instance.id,
-  'userId': instance.userId,
+  'user': instance.user.toJson(),
   'products': instance.products.map((e) => e.toJson()).toList(),
 };

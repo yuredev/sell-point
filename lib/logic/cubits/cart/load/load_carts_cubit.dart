@@ -40,7 +40,7 @@ class LoadCartsCubit extends HydratedCubit<LoadCartsState> {
     }
     return DateTime.now()
         .subtract(Duration(minutes: Durations.minutesRefreshRate))
-        .isAfter((state as UsersLoadedState).lastTimeUpdated);
+        .isAfter((state as CartsLoadedState).lastTimeUpdated);
   }
 
   Future<void> load() async {

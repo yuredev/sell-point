@@ -29,7 +29,9 @@ void main() async {
 
   if (loadUsersCubit.shouldRefresh ||
       loadProductsCubit.shouldRefresh ||
+      loadCartsCubit.shouldRefresh ||
       loadCartsCubit.state is! CartsLoadedState) {
+    print('entrou');
     loadProductsCubit
         .load()
         .then((_) => loadUsersCubit.load())

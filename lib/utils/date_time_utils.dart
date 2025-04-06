@@ -1,11 +1,13 @@
 import 'package:intl/intl.dart';
 
 abstract class DateTimeUtils {
+  static final _format = DateFormat('dd/MM/yyyy HH:mm:ss.SSS');
+
   static String dateToBRLFormat(DateTime data) {
-    return DateFormat('dd/MM/yyyy').format(data);
+    return _format.format(data);
   }
 
   static DateTime fromBRLFormat(String date) {
-    return DateFormat('dd/MM/yyyy').parseStrict(date);
+    return _format.parseStrict(date);
   }
 }

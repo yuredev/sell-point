@@ -14,7 +14,7 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Produtos', style: TextStyle(color: Colors.white)),
-        backgroundColor: SellPointColors.main,
+        backgroundColor: AppColors.main,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -25,7 +25,7 @@ class ProductsPage extends StatelessWidget {
           );
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-        backgroundColor: SellPointColors.accentGreen,
+        backgroundColor: AppColors.accentGreen,
         child: const Icon(Icons.add, color: Colors.white),
       ),
       body: Padding(

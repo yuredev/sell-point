@@ -8,7 +8,6 @@ import 'package:sell_point/domain/user/user.dart';
 import 'package:sell_point/logic/cubits/cart/load/load_carts_state.dart';
 import 'package:sell_point/logic/cubits/product/load/load_products_cubit.dart';
 import 'package:sell_point/logic/cubits/user/load/load_users_cubit.dart';
-import 'package:sell_point/logic/cubits/user/load/load_users_state.dart';
 import 'package:sell_point/repository/cart/cart_repository.dart';
 import 'package:sell_point/utils/date_time_utils.dart';
 

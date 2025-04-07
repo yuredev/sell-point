@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sell_point/core/constants/colors.dart';
+import 'package:sell_point/core/constants/sizes.dart';
 import 'package:sell_point/core/routes.dart';
 import 'package:sell_point/logic/cubits/cart/load/load_carts_cubit.dart';
 import 'package:sell_point/logic/cubits/cart/load/load_carts_state.dart';
@@ -17,10 +18,13 @@ class SellerPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Vendedor', style: TextStyle(color: Colors.white)),
-        backgroundColor: SellPointColors.main,
+        backgroundColor: AppColors.main,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Sizes.defaultHorizontalPadding,
+          vertical: Sizes.defaultVerticalPadding,
+        ),
         child: BlocBuilder<LoadCartsCubit, LoadCartsState>(
           builder:
               (context, state) => RefreshIndicator(
@@ -33,7 +37,7 @@ class SellerPage extends StatelessWidget {
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
                           final cart = state.carts[index];
-                          return UserItemOfListComponent(
+                          return UserItemOfListWidget(
                             cart: cart,
                             onTap: () {
                               Navigator.pushNamed(
@@ -50,7 +54,7 @@ class SellerPage extends StatelessWidget {
                       SliverList(
                         delegate: SliverChildListDelegate.fixed(
                           List.generate(10, (i) {
-                            return UserItemOfListComponent(isLoading: true);
+                            return UserItemOfListWidget(isLoading: true);
                           }),
                         ),
                       )

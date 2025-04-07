@@ -5,7 +5,7 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   appBarTheme: AppBarTheme(
     centerTitle: true,
-    backgroundColor: SellPointColors.main,
+    backgroundColor: AppColors.main,
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
@@ -15,11 +15,11 @@ final lightTheme = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
-  scaffoldBackgroundColor: SellPointColors.backgroundWhite,
-  textTheme: TextTheme(titleLarge: TextStyle(color: SellPointColors.main)),
-  primaryColor: SellPointColors.main,
+  scaffoldBackgroundColor: AppColors.backgroundWhite,
+  textTheme: TextTheme(titleLarge: TextStyle(color: AppColors.main)),
+  primaryColor: AppColors.main,
   inputDecorationTheme: InputDecorationTheme(
-    focusColor: SellPointColors.lightGray,
+    focusColor: AppColors.lightGray,
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Colors.grey, width: 2),
     ),

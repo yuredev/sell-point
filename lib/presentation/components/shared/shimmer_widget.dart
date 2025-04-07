@@ -10,7 +10,7 @@ class ShimmerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: SellPointColors.shimmerGray,
+      baseColor: AppColors.shimmerGray,
       highlightColor: Colors.white,
       child: child,
     );

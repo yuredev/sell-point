@@ -4,12 +4,12 @@ import 'package:sell_point/presentation/components/shared/gray_bar_widget.dart';
 import 'package:sell_point/presentation/components/shared/shimmer_widget.dart';
 import 'package:sell_point/utils/string_utils.dart';
 
-class UserItemOfListComponent extends StatelessWidget {
+class UserItemOfListWidget extends StatelessWidget {
   final Cart? cart;
   final VoidCallback? onTap;
   final bool isLoading;
 
-  const UserItemOfListComponent({
+  const UserItemOfListWidget({
     super.key,
     this.cart,
     this.onTap,

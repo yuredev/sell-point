@@ -17,7 +17,7 @@ class SellerPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Vendedor', style: TextStyle(color: Colors.white)),
+        title: const Text('Selecionar vendedor', style: TextStyle(color: Colors.white)),
         backgroundColor: AppColors.main,
       ),
       body: Padding(

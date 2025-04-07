@@ -3,6 +3,7 @@ import 'package:sell_point/core/constants/colors.dart';
 import 'package:sell_point/core/constants/sizes.dart';
 import 'package:sell_point/core/routes.dart';
 import 'package:sell_point/domain/cart/cart.dart';
+import 'package:sell_point/presentation/components/shared/product_widget.dart';
 
 class ProductsPage extends StatelessWidget {
   final Cart cart;
@@ -13,7 +14,10 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Produtos', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Produtos da venda',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: AppColors.main,
       ),
       floatingActionButton: FloatingActionButton(
@@ -57,11 +61,13 @@ class ProductsPage extends StatelessWidget {
                         ),
                         actions: [
                           TextButton(
-                            onPressed: () => Navigator.of(context).pop(false),
+                            onPressed:
+                                () => Navigator.of(context).pop(false),
                             child: const Text('Cancelar'),
                           ),
                           TextButton(
-                            onPressed: () => Navigator.of(context).pop(true),
+                            onPressed:
+                                () => Navigator.of(context).pop(true),
                             child: const Text('Remover'),
                           ),
                         ],
@@ -71,14 +77,12 @@ class ProductsPage extends StatelessWidget {
               onDismissed: (direction) {
                 cart.products.removeAt(index);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('${product.title} removido da venda')),
+                  SnackBar(
+                    content: Text('${product.title} removido da venda'),
+                  ),
                 );
               },
-              child: ListTile(
-                title: Text(product.title),
-                subtitle: Text('R\$ ${product.price.toStringAsFixed(2)}'),
-                leading: const Icon(Icons.shopping_cart_outlined),
-              ),
+              child: ProductWidget(product: product),
             );
           },
         ),

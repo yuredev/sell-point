@@ -2,11 +2,11 @@
 
 ## Setup
 
-Na raiz do projeto, para baixar as dependencias execute
+Na raiz do projeto, para baixar as dependencias execute:
 
-```flutter pub get´``
+```flutter pub get```
 
-Quando tiver as dependencias baixadas execute
+Quando tiver as dependencias baixadas execute:
 
 ```flutter pub run build_runner build --delete-conflicting-outputs```
 

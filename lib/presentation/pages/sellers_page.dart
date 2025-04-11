@@ -3,65 +3,72 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sell_point/core/constants/colors.dart';
 import 'package:sell_point/core/constants/sizes.dart';
 import 'package:sell_point/core/routes.dart';
-import 'package:sell_point/logic/cubits/cart/load/load_carts_cubit.dart';
-import 'package:sell_point/logic/cubits/cart/load/load_carts_state.dart';
-import 'package:sell_point/presentation/components/seller_page/user_item_of_list_component.dart';
+import 'package:sell_point/logic/cubits/user/load/load_users_cubit.dart';
+import 'package:sell_point/logic/cubits/user/load/load_users_state.dart';
+import 'package:sell_point/presentation/widgets/sellers_page/user_item_of_list_component.dart';
 
-class SellerPage extends StatelessWidget {
-  const SellerPage({super.key});
+class SellersPage extends StatefulWidget {
+  const SellersPage({super.key});
+
+  @override
+  State<SellersPage> createState() => _SellersPageState();
+}
+
+class _SellersPageState extends State<SellersPage> {
+  late final LoadUsersCubit loadUsersCubit = context.read();
+
+  @override
+  void initState() {
+    super.initState();
+    loadUsersCubit.load();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final loadCartsCubit = context.read<LoadCartsCubit>();
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Selecionar vendedor', style: TextStyle(color: Colors.white)),
         backgroundColor: AppColors.main,
+        title: const Text(
+          'Selecionar vendedor',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: Sizes.defaultHorizontalPadding,
           vertical: Sizes.defaultVerticalPadding,
         ),
-        child: BlocBuilder<LoadCartsCubit, LoadCartsState>(
+        child: BlocBuilder<LoadUsersCubit, LoadUsersState>(
           builder:
               (context, state) => RefreshIndicator(
                 onRefresh: () async {
-                  loadCartsCubit.load();
+                  loadUsersCubit.load();
                 },
                 child: CustomScrollView(
                   slivers: [
-                    if (state is CartsLoadedState)
+                    if (state is UsersLoadedState)
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          final cart = state.carts[index];
+                          final user = state.users[index];
                           return UserItemOfListWidget(
-                            cart: cart,
+                            user: user,
                             onTap: () {
                               Navigator.pushNamed(
                                 context,
                                 Routes.products,
-                                arguments: cart,
+                                arguments: user,
                               );
                             },
                           );
-                        }, childCount: state.carts.length),
+                        }, childCount: state.users.length),
                       )
-                    else if (state is LoadingCartsState ||
-                        state is InitialLoadCartsState)
+                    else if (state is LoadingUsersState)
                       SliverList(
                         delegate: SliverChildListDelegate.fixed(
                           List.generate(10, (i) {
                             return UserItemOfListWidget(isLoading: true);
                           }),
-                        ),
-                      )
-                    else if (state is CartsLoadErrorState)
-                      const SliverFillRemaining(
-                        child: Center(
-                          child: Text("Erro ao carregar os carrinhos"),
                         ),
                       ),
                   ],

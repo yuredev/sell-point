@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:sell_point/domain/cart/cart.dart';
-import 'package:sell_point/presentation/components/shared/gray_bar_widget.dart';
-import 'package:sell_point/presentation/components/shared/shimmer_widget.dart';
+import 'package:sell_point/domain/user/user.dart';
+import 'package:sell_point/presentation/widgets/shared/gray_bar_widget.dart';
+import 'package:sell_point/presentation/widgets/shared/shimmer_widget.dart';
 import 'package:sell_point/utils/string_utils.dart';
 
 class UserItemOfListWidget extends StatelessWidget {
-  final Cart? cart;
+  final User? user;
   final VoidCallback? onTap;
   final bool isLoading;
 
   const UserItemOfListWidget({
     super.key,
-    this.cart,
+    this.user,
     this.onTap,
     this.isLoading = false,
   });
@@ -22,30 +22,21 @@ class UserItemOfListWidget extends StatelessWidget {
       title:
           isLoading
               ? GrayBarWidget(
-                height: 25,
+                height: 28,
                 width: 40,
-                padding: EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 5),
               )
-              : Text(StringUtils.toPersonalName(cart!.user.username)),
+              : Text(StringUtils.toPersonalName(user!.username)),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           isLoading
               ? GrayBarWidget(
-                height: 20,
+                height: 23,
                 width: 140,
-                padding: EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 5),
               )
-              : Text('${cart!.products.length} produtos vendidos'),
-          isLoading
-              ? GrayBarWidget(
-                height: 20,
-                width: 70,
-                padding: EdgeInsets.symmetric(vertical: 5),
-              )
-              : Text(
-                'R\$ ${cart!.products.fold<double>(0, (total, p) => total + p.price).toStringAsFixed(2)}',
-              ),
+              : Text(user!.email),
         ],
       ),
       leading: const Icon(Icons.person_rounded, size: 36, color: Colors.grey),

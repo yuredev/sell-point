@@ -1,3 +1,5 @@
 {
-    "dart.flutterSdkPath": "~/OneDrive/Documentos/flutter"
+    "dart.flutterSdkPath": "~/OneDrive/Documentos/flutter",
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true
 }

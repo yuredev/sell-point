@@ -11,6 +11,7 @@ class Product extends Equatable {
   final String description;
   final String category;
   final String image;
+  final int? quantity;
 
   const Product({
     required this.id,
@@ -19,6 +20,7 @@ class Product extends Equatable {
     required this.description,
     required this.category,
     required this.image,
+    this.quantity,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) =>
@@ -27,7 +29,7 @@ class Product extends Equatable {
   Map<String, dynamic> toJson() => _$ProductToJson(this);
 
   @override
-  List<Object?> get props => [id, title, price, description, category, image];
+  List<Object?> get props => [id, title, price, description, category, image, quantity];
 
   Product copyWith({
     int? id,
@@ -36,6 +38,7 @@ class Product extends Equatable {
     String? description,
     String? category,
     String? image,
+    int? quantity,
   }) {
     return Product(
       id: id ?? this.id,
@@ -44,24 +47,7 @@ class Product extends Equatable {
       description: description ?? this.description,
       category: category ?? this.category,
       image: image ?? this.image,
-    );
-  }
-
-  Product copyWithout({
-    bool id = false,
-    bool title = false,
-    bool price = false,
-    bool description = false,
-    bool category = false,
-    bool image = false,
-  }) {
-    return Product(
-      id: id ? 0 : this.id,
-      title: title ? '' : this.title,
-      price: price ? 0.0 : this.price,
-      description: description ? '' : this.description,
-      category: category ? '' : this.category,
-      image: image ? '' : this.image,
+      quantity: quantity ?? this.quantity,
     );
   }
 }
